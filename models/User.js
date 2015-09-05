@@ -1,9 +1,11 @@
-var mongoose = require('mongoose);
+var mongoose = require('mongoose');
 
 var UserSchema = mongoose.Schema({
-  key1: Type;
-    // type is String, Integer, etc.
-  key2: Type;
+  // username and password properties provided by passport
+  email: String,
+  wait_time: Number
+
+  // ref spot
 });
 
 module.exports = mongoose.model('User', UserSchema);
