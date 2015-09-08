@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('lineUp', []);
+    .module('lineUp', ['ngResource']);
 
 })();
