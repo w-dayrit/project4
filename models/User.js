@@ -1,16 +1,20 @@
 var mongoose = require('mongoose');
 
 var UserSchema = mongoose.Schema({
-  // username and password properties provided by passport
+  username: String,
+  // delete username when implementing passport
   email: String,
   wait_time: Number,
   friends: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     default: []
-  }]
-  spot: mongoose.Schema.Types.ObjectId,
-  ref: 'Spot'
+  }],
+  spot: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Spot',
+    index: true
+  }
 
 });
 
