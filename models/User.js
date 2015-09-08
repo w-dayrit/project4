@@ -3,9 +3,15 @@ var mongoose = require('mongoose');
 var UserSchema = mongoose.Schema({
   // username and password properties provided by passport
   email: String,
-  wait_time: Number
+  wait_time: Number,
+  friends: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    default: []
+  }]
+  spot: mongoose.Schema.Types.ObjectId,
+  ref: 'Spot'
 
-  // ref spot
 });
 
 module.exports = mongoose.model('User', UserSchema);
