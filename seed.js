@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/project4');
+mongoose.connect(mongoURI);
 
 var User = require('./models/User');
 var Spot = require('./models/Spot');

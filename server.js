@@ -11,7 +11,12 @@ var spots = require('./routes/spots');
 
 // load mongoose & connect to db
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/project4');
+
+var mongoURI = 'mongodb://localhost/project4';
+if (process.env.NODE_ENV === 'production') {
+  mongoURI = process.env.MONGOLAB_URI;
+}
+mongoose.connect(mongoURI);
 
 var app = express();
 
