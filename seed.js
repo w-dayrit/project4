@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect(mongoURI);
+mongoose.connect('mongodb://localhost/project4');
 
 var User = require('./models/User');
 var Spot = require('./models/Spot');
@@ -81,7 +81,6 @@ User.find({}).exec(function (err, collection) {
         seedSpot('Omnia', 'Peter', 'peter@email.com', 50);
     }
 });
-
 
 
 
