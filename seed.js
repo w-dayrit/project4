@@ -62,12 +62,20 @@ Spot
 function seedSpot(spotName, userName, userEmail, userWaitTime) {
   Spot.findOne({ name: spotName }).exec()
     .then(function (spot) {
-      console.log("Found " + spotName);
-      return User.create({
+
+
+      console.log(userName , userEmail);
+
+      User.create({
         username: userName,
         email: userEmail,
         wait_time: userWaitTime,
         spot: spot._id
+      }).then(function(user) {
+        console.log(user);
+        console.log(spot);
+        spot.users.push(user);
+        spot.save();
       });
     });
 }
